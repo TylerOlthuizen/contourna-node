@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors');
 const axios = require('axios');
 const dotenv = require('dotenv').config();
+const port = 2000;
 
 //enabling cors
 app.use(cors());
@@ -11,6 +12,9 @@ app.use(cors());
 //Parse data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+//add router in express
+app.use('/', router);
 
 //POST route
 router.post('/post', async (req, res) => {
@@ -40,6 +44,6 @@ router.post('/post', async (req, res) => {
   }
 });
 
-app.listen(443, () => {
-  console.log(`server is running on `);
+app.listen(port, () => {
+  console.log(`server is running on ${port}`);
 });
