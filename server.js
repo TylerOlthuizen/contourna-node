@@ -18,7 +18,6 @@ app.use('/', router);
 
 //POST route
 router.post('/post', async (req, res) => {
-  console.log(process.env.SECRET_KEY);
   //Destructuring response token from request body
   if (!req.body.token) {
     //check response status and send back to the client-side
